@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Vista de Productos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <!--Bootswatch-->
+    <link rel="stylesheet" href="https://bootswatch.com/5/darkly/bootstrap.min.css">
+
+</head>
+
+<body>
+    <div class="container">
+
+        <div>
+            <h1>Vista de Productos</h1>
+
+            <% if(hayProductos){ %>
+                <div class="table-responsive">
+                    <table class="table">
+                        <tr class="table-primary">
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Foto</th>
+                        </tr>
+                        <%productos.forEach(function(producto) {%>
+                            <tr class="table-primary">
+                                <td>
+                                    <%=producto.title%>
+                                </td>
+                                <td>
+                                    <%=producto.price%>
+                                </td>
+                                <td><img width="50" src=<%=producto.thumbnail%> alt="not found"></td>
+                            </tr>
+                            <%});%>
+                    </table>
+                </div>
+                <% } else{ %>
+                    <h3 class="alert alert-warning">No se encontraron productos</h3>
+                    <% } %>
+
+                        <a href="/" type="button" class="btn btn-light">Cargar un nuevo producto</a>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>
